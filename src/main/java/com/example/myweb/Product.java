@@ -1,14 +1,15 @@
 package com.example.myweb;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
+
+@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","fieldHandler"})
 @Entity
 @Table(name="product")
 public class Product {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
     @Column(name="name")
